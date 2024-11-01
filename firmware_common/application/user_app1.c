@@ -141,13 +141,14 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
-  static u16 au16Notes[] = {C4, D4, E4, F4, G4, A4, B4, C5};
+  /* Trying to play Super Mario Theme*/
+  static u16 au16Notes[] = {E4, E4, E4, C4, E4, G4, G3, C4, G3, E3};
   static u8 u8NoteIndex = 0;
   
   /* Change the current note */
-  if (WasButtonPressed(BUTTON1))
+  if (WasButtonPressed(BUTTON0))
   {
-    ButtonAcknowledge(BUTTON1);
+    ButtonAcknowledge(BUTTON0);
     u8NoteIndex++;
     if(u8NoteIndex == (u8)(sizeof(au16Notes) / sizeof(u16))) {
       u8NoteIndex = 0;
